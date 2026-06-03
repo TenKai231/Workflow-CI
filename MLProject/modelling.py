@@ -17,12 +17,15 @@ if __name__ == "__main__":
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
 
-    # Pastikan tracking URI ke lokal jika tidak ingin pakai server port 5000
-    mlflow.set_tracking_uri("file://" + os.path.join(current_dir, "mlruns"))
-    mlflow.set_experiment("Latihan Credit Scoring")
+    # Hanya atur tracking URI dan experiment jika tidak sedang dalam context 'mlflow run' (CI)
+    if "MLFLOW_RUN_ID" not in os.environ:
+        mlflow.set_tracking_uri("file://" + os.path.join(current_dir, "mlruns"))
+        mlflow.set_experiment("Latihan Credit Scoring")
+
+    # Nyalakan autolog
     mlflow.autolog()
 
-    # Ambil file path dari argument atau default ke dataset_clean.csv
+    # Ambil file path
     file_path = sys.argv[3] if len(sys.argv) > 3 else os.path.join(current_dir, "dataset_clean.csv")
 
     if not os.path.exists(file_path):
@@ -42,22 +45,22 @@ if __name__ == "__main__":
     n_estimators = int(sys.argv[1]) if len(sys.argv) > 1 else 505
     max_depth = int(sys.argv[2]) if len(sys.argv) > 2 else 37
 
-    with mlflow.start_run():
-        model = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth)
+    # Biarkan autolog yang menangani start_run secara otomatis agar kompatibel dengan 'mlflow run'
+    model = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth)
+    model.fit(X_train, y_train)
 
-        # Cukup fit sekali saja
-        model.fit(X_train, y_train)
+    # Log metrik secara manual jika perlu
+    accuracy = model.score(X_test, y_test)
 
-        # Log model setelah di-fit
-        mlflow.sklearn.log_model(
-            sk_model=model,
-            artifact_path="model",
-            input_example=input_example
-        )
-
-        # Log metrics
-        accuracy = model.score(X_test, y_test)
+    # Cek apakah sudah ada run aktif (dari mlflow run), jika tidak baru buat run manual
+    active_run = mlflow.active_run()
+    if active_run:
         mlflow.log_metric("accuracy", accuracy)
+        print(f"Menggunakan run aktif: {active_run.info.run_id}")
+    else:
+        with mlflow.start_run():
+            mlflow.log_metric("accuracy", accuracy)
+            mlflow.sklearn.log_model(sk_model=model, artifact_path="model", input_example=input_example)
 
-        print(f"Berhasil! Model dilatih dengan n_estimators={n_estimators}, max_depth={max_depth}")
-        print(f"Accuracy: {accuracy:.4f}")
+    print(f"Berhasil! Model dilatih dengan n_estimators={n_estimators}, max_depth={max_depth}")
+    print(f"Accuracy: {accuracy:.4f}")
