@@ -1,0 +1,14 @@
+artifact_uri: file:///mnt/DATA/proyek/SMSML_Rama-Ferdiansyah/Workflow-CI/mlruns/249435392742860495/dca29fd8dfad4c62ae1f3777b3bac47e/artifacts
+end_time: 1780466588629
+entry_point_name: ''
+experiment_id: '249435392742860495'
+lifecycle_stage: active
+run_id: dca29fd8dfad4c62ae1f3777b3bac47e
+run_name: awesome-kit-51
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780466585174
+status: 4
+tags: []
+user_id: tenkai

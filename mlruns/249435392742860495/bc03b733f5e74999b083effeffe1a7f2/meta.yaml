@@ -1,0 +1,14 @@
+artifact_uri: file:///mnt/DATA/proyek/SMSML_Rama-Ferdiansyah/Workflow-CI/mlruns/249435392742860495/bc03b733f5e74999b083effeffe1a7f2/artifacts
+end_time: 1780466896962
+entry_point_name: ''
+experiment_id: '249435392742860495'
+lifecycle_stage: active
+run_id: bc03b733f5e74999b083effeffe1a7f2
+run_name: trusting-skink-744
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780466876699
+status: 3
+tags: []
+user_id: tenkai

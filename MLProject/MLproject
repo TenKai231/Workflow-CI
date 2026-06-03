@@ -1,0 +1,23 @@
+name: credit_scoring
+
+# Menentukan environment conda yang akan dipakai MLflow untuk menjalankan project ini
+conda_env: conda.yaml
+
+# Entry points adalah daftar skrip yang bisa dieksekusi oleh MLflow dari project ini
+entry_points:
+  # Nama tugas utamanya (main)
+  main:
+    parameters:
+      # Mendefinisikan parameter yang bisa diganti-ganti saat run via CLI (beserta default valuenya)
+      n_estimators:
+        type: int
+        default: 100
+      max_depth:
+        type: int
+        default: 10
+      file_path:
+        type: string
+        default: "dataset_clean.csv"
+
+    # Perintah eksekusi yang akan dijalankan oleh MLflow secara otomatis
+    command: "python modelling.py {n_estimators} {max_depth} {file_path}"

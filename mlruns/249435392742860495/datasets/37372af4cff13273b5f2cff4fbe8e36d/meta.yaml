@@ -1,0 +1,14 @@
+digest: aa6eea42
+name: dataset
+profile: '{"num_rows": 5, "num_elements": 55}'
+schema: '{"mlflow_colspec": [{"type": "double", "name": "Age", "required": true},
+  {"type": "long", "name": "Credit_Mix", "required": true}, {"type": "long", "name":
+  "Payment_of_Min_Amount", "required": true}, {"type": "long", "name": "Payment_Behaviour",
+  "required": true}, {"type": "double", "name": "pc1_1", "required": true}, {"type":
+  "double", "name": "pc1_2", "required": true}, {"type": "double", "name": "pc1_3",
+  "required": true}, {"type": "double", "name": "pc1_4", "required": true}, {"type":
+  "double", "name": "pc1_5", "required": true}, {"type": "double", "name": "pc2_1",
+  "required": true}, {"type": "double", "name": "pc2_2", "required": true}]}'
+source: '{"tags": {"mlflow.user": "tenkai", "mlflow.source.name": "/mnt/DATA/proyek/SMSML_Rama-Ferdiansyah/Workflow-CI/modelling.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "e336176ed3cc080103c3387465167120c060fce3"}}'
+source_type: code

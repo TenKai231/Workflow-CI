@@ -1,0 +1,14 @@
+artifact_uri: file:///mnt/DATA/proyek/SMSML_Rama-Ferdiansyah/Workflow-CI/mlruns/249435392742860495/8e4eef7e21b94439b6ac3d544af4006e/artifacts
+end_time: 1780466608095
+entry_point_name: ''
+experiment_id: '249435392742860495'
+lifecycle_stage: active
+run_id: 8e4eef7e21b94439b6ac3d544af4006e
+run_name: rogue-squid-755
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1780466592790
+status: 3
+tags: []
+user_id: tenkai

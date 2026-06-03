@@ -1,0 +1,13 @@
+name: credit_scoring
+channels:
+  - defaults
+dependencies:
+  - python=3.12.7
+  - pip
+  - pip:
+    - numpy
+    - pandas
+    - matplotlib
+    - scikit-learn
+    - joblib
+    - mlflow

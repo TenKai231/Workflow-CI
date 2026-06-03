@@ -1,0 +1,10 @@
+artifact_location: file:///mnt/DATA/proyek/SMSML_Rama-Ferdiansyah/Workflow-CI/mlruns/249435392742860495/models/m-73c155fb120248dca4acee1dcf39e735/artifacts
+creation_timestamp: 1780466549067
+experiment_id: '249435392742860495'
+last_updated_timestamp: 1780466555976
+model_id: m-73c155fb120248dca4acee1dcf39e735
+model_type: null
+name: model
+source_run_id: c5b72c81e3f047fda031e37cf2b6f9c2
+status: 2
+status_message: null
